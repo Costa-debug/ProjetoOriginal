@@ -1,0 +1,24 @@
+﻿<Page x:Class="ProjetoIntegradorOficial.Cardápio3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetoIntegradorOficial"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Cardápio3">
+
+    <Grid>
+        <Image HorizontalAlignment="Center" Height="450" VerticalAlignment="Center" Width="801" Source="/6.png"/>
+        <CheckBox x:Name="Batata100g" Content="" HorizontalAlignment="Left" Margin="448,172,0,0" VerticalAlignment="Top" Checked="Batata100g_Checked" Unchecked="Batata100g_Checked"/>
+        <TextBox x:Name="tb_Batata100g" HorizontalAlignment="Left" Margin="473,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="Batata100gQt"/>
+        <CheckBox x:Name="Batata200g" Content="" HorizontalAlignment="Left" Margin="448,243,0,0" VerticalAlignment="Top" Checked="Batata200g_Checked" Unchecked="Batata200g_Checked"/>
+        <CheckBox x:Name="Batata400g" Content="" HorizontalAlignment="Left" Margin="448,313,0,0" VerticalAlignment="Top" Checked="Batata400g_Checked" Unchecked="Batata400g_Checked"/>
+        <TextBox x:Name="tb_Batata200g" HorizontalAlignment="Left" Margin="473,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="Batata200gQt"/>
+        <TextBox x:Name="tb_Batata400g" HorizontalAlignment="Left" Margin="473,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="Batata400gQt"/>
+        <Button x:Name="Button_Voltar2" Content="Voltar" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Voltar2_Click" />
+        <Button x:Name="Button_Bebidas1" Content="Bebidas" HorizontalAlignment="Left" Margin="630,380,0,0" VerticalAlignment="Top" Height="48" Width="136" Background="#FFE4B100" Click="Button_Porções_Click" />
+        <Button x:Name="Button_Finalisar3" Content="Finalisar" HorizontalAlignment="Left" Margin="632,32,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Finalisar3_Click" />
+
+    </Grid>
+</Page>

@@ -1,0 +1,23 @@
+﻿<Page x:Class="ProjetoIntegradorOficial.Cardápio4"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetoIntegradorOficial"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Cardápio4">
+
+    <Grid>
+        <Image HorizontalAlignment="Center" Height="443" VerticalAlignment="Top" Width="812" Source="/Mac dos Lanche (1).png"/>
+        <CheckBox x:Name="Coca" Content="" HorizontalAlignment="Left" Margin="432,170,0,0" VerticalAlignment="Top" Checked="Coca_Checked" Unchecked="Coca_Checked"/>
+        <CheckBox x:Name="Água" Content="" HorizontalAlignment="Left" Margin="432,238,0,0" VerticalAlignment="Top" Checked="Água_Checked" Unchecked="Água_Checked"/>
+        <CheckBox x:Name="Suco" Content="" HorizontalAlignment="Left" Margin="432,309,0,0" VerticalAlignment="Top" Checked="Suco_Checked" Unchecked="Suco_Checked"/>
+        <TextBox x:Name="tb_Coca" HorizontalAlignment="Left" Margin="457,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="CocaQt"/>
+        <TextBox x:Name="tb_Água" HorizontalAlignment="Left" Margin="457,238,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="ÁguaQt"/>
+        <TextBox x:Name="tb_Suco" HorizontalAlignment="Left" Margin="457,306,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="SucoQt"/>
+        <Button x:Name="Button_Voltar3" Content="Voltar" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Voltar2_Click" />
+        <Button x:Name="Button_Finalisar4" Content="Finalisar" HorizontalAlignment="Left" Margin="630,380,0,0" VerticalAlignment="Top" Height="48" Width="136" Background="#FFE4B100" Click="Button_Finalisar4_Click" />
+
+    </Grid>
+</Page>

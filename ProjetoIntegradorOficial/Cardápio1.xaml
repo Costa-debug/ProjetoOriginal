@@ -1,0 +1,23 @@
+﻿<Page x:Class="ProjetoIntegradorOficial.Cardápio1"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetoIntegradorOficial"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Cardápio1">
+
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="446" VerticalAlignment="Top" Width="797" Source="/4.png" Margin="0,4,0,0"/>
+        <Button x:Name="Button_Mopções" Content="Mais Opções" HorizontalAlignment="Left" Margin="630,380,0,0" VerticalAlignment="Top" Height="48" Width="136" Background="#FFE4B100" Click="Button_Mopções_Click" />
+        <Button x:Name="Button_Finalisar1" Content="Finalisar" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Finalisar1_Click"/>
+        <CheckBox x:Name="XBurguer" HorizontalAlignment="Left" Margin="444,171,0,0" VerticalAlignment="Top" Width="18" Checked="CheckXburguer" Unchecked="CheckXburguer"/>
+        <CheckBox x:Name="XBacon" HorizontalAlignment="Left" Margin="444,241,0,0" VerticalAlignment="Top" Checked="XBacon_Checked" Unchecked="XBacon_Checked"/>
+        <CheckBox x:Name="XFrango" HorizontalAlignment="Left" Margin="444,312,0,0" VerticalAlignment="Top" Checked="XFrango_Checked" Unchecked="XFrango_Checked"/>
+        <TextBox x:Name="tb_XBacon" HorizontalAlignment="Left" Margin="465,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBaconQt"/>
+        <TextBox x:Name="tb_XBurguer" HorizontalAlignment="Left" Margin="465,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBurguerQt"/>
+        <TextBox x:Name="tb_XFrango" HorizontalAlignment="Left" Margin="465,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XFrangoQt"/>
+
+    </Grid>
+</Page>

@@ -6,22 +6,5 @@
         xmlns:local="clr-namespace:ProjetoIntegradorOficial"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Image HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="835" RenderTransformOrigin="0.5,0.5" Source="/Mc dos Lanche.png">
-            <Image.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.065"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Image.RenderTransform>
-        </Image>
-        <Button x:Name="apresentação" Content="" HorizontalAlignment="Left" Margin="60,358,0,0" VerticalAlignment="Top" Height="66" Width="145" Background="#FF484343" BorderBrush="{x:Null}">
-            <Button.OpacityMask>
-                <ImageBrush/>
-            </Button.OpacityMask>
-        </Button>
-
-    </Grid>
+    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Source="Home.xaml"></Frame>
 </Window>

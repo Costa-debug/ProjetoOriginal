@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,15 +16,13 @@ using System.Windows.Shapes;
 namespace ProjetoIntegradorOficial
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interação lógica para Cardápio5.xam
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Cardápio5 : Page
     {
-        public Dictionary<string, int> ItemPedido = new Dictionary<string, int>();
-        public MainWindow()
+        public Cardápio5()
         {
             InitializeComponent();
-            ConectarBD.AbrirConexao("server=localhost;user=root;password=root;database=lancheria");
         }
     }
 }
