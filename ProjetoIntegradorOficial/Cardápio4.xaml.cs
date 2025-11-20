@@ -20,6 +20,20 @@ namespace ProjetoIntegradorOficial
         public Cardápio4()
         {
             InitializeComponent();
+            if (((App)Application.Current).checkCoca == true)
+            {
+                Coca.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkÁgua == true)
+            {
+                Água.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkSuco == true)
+            {
+                Suco.IsChecked = true;
+            }
         }
 
         private void Button_Voltar2_Click(object sender, RoutedEventArgs e)
@@ -43,11 +57,13 @@ namespace ProjetoIntegradorOficial
         {
             if (Coca.IsChecked == true)
             {
-                SetValue(Coca.Name, tb_Coca.Text);
+                SetValue(Coca.Name, int.Parse(tb_Coca.Text), 5.00);
                 ((App)Application.Current).UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);
+                ((App)Application.Current).checkCoca = true;
             }
             else
             {
+                ((App)Application.Current).checkCoca = false;
                 RemoveValue(Coca.Name);
             }
         }
@@ -56,11 +72,13 @@ namespace ProjetoIntegradorOficial
         {
             if (Água.IsChecked == true)
             {
-                SetValue(Água.Name, tb_Água.Text);
+                SetValue(Água.Name, int.Parse(tb_Água.Text), 3.00);
                 ((App)Application.Current).UpdateQuantidade(Água, tb_Água.Name, tb_Água.Text);
+                ((App)Application.Current).checkÁgua = true;
             }
             else
             {
+                ((App)Application.Current).checkÁgua = false;
                 RemoveValue(Água.Name);
             }
         }
@@ -69,30 +87,41 @@ namespace ProjetoIntegradorOficial
         {
             if (Suco.IsChecked == true)
             {
-                SetValue(Suco.Name, tb_Suco.Text);
+                SetValue(Suco.Name, int.Parse(tb_Suco.Text), 7.00);
                 ((App)Application.Current).UpdateQuantidade(Suco, tb_Suco.Name, tb_Suco.Text);
+                ((App)Application.Current).checkSuco = true;
             }
             else
             {
+                ((App)Application.Current).checkSuco = false;
                 RemoveValue(Suco.Name);
             }
         }
        
-        private void RemoveValue(string item)
-        {
-            ((App)Application.Current).ItemPedido.Remove(item);
-        }
-
-        private void SetValue(string item, string quantidade)
+        private void SetValue(string item, int quantidade, double preco)
         {
             try
             {
-                ((App)Application.Current).ItemPedido.Add(item, int.Parse(quantidade));
+                ((App)Application.Current).ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
             }
             catch { }
 
         }
         
+        private void RemoveValue(string item)
+        {
+            var pedido = ((App)Application.Current).ItemPedido;
+
+            foreach (var pedidoItem in pedido)
+            {
+                if (pedidoItem.Item == item)
+                {
+                    pedido.Remove(pedidoItem);
+                    break;
+                }
+            }
+        }
+       
         private void CocaQt(object sender, TextChangedEventArgs e)
         {
             ((App)Application.Current).UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);

@@ -23,6 +23,20 @@ namespace ProjetoIntegradorOficial
         public Cardápio3()
         {
             InitializeComponent();
+            if (((App)Application.Current).checkBatata100g == true)
+            {
+                Batata100g.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkBatata200g == true)
+            {
+                Batata200g.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkBatata400g == true)
+            {
+                Batata400g.IsChecked = true;
+            }
         }
 
         private void Button_Porções_Click(object sender, RoutedEventArgs e)
@@ -51,11 +65,13 @@ namespace ProjetoIntegradorOficial
         {
             if (Batata100g.IsChecked == true)
             {
-                SetValue(Batata100g.Name, tb_Batata100g.Text);
+                SetValue(Batata100g.Name, int.Parse(tb_Batata100g.Text), 10.00);
                 ((App)Application.Current).UpdateQuantidade(Batata100g, tb_Batata100g.Name, tb_Batata100g.Text);
+                ((App)Application.Current).checkBatata100g = true;
             }
             else
             {
+                ((App)Application.Current).checkBatata100g = false;
                 RemoveValue(Batata100g.Name);
             }
         }
@@ -64,11 +80,13 @@ namespace ProjetoIntegradorOficial
         {
             if (Batata200g.IsChecked == true)
             {
-                SetValue(Batata200g.Name, tb_Batata200g.Text);
-                ((App)Application.Current).UpdateQuantidade(Batata100g, tb_Batata200g.Name, tb_Batata200g.Text);
+                SetValue(Batata200g.Name, int.Parse(tb_Batata200g.Text), 15.00);
+                ((App)Application.Current).UpdateQuantidade(Batata200g, tb_Batata200g.Name, tb_Batata200g.Text);
+                ((App)Application.Current).checkBatata200g = true;
             }
             else
             {
+                ((App)Application.Current).checkBatata200g = true;
                 RemoveValue(Batata200g.Name);
             }
         }
@@ -77,28 +95,39 @@ namespace ProjetoIntegradorOficial
         {
             if (Batata400g.IsChecked == true)
             {
-                SetValue(Batata400g.Name, tb_Batata400g.Text);
+                SetValue(Batata400g.Name, int.Parse(tb_Batata400g.Text), 20.00);
                 ((App)Application.Current).UpdateQuantidade(Batata400g, tb_Batata400g.Name, tb_Batata400g.Text);
+                ((App)Application.Current).checkBatata400g = true;
             }
             else
             {
+                ((App)Application.Current).checkBatata400g = true;
                 RemoveValue(Batata400g.Name);
             }
         }
        
-        private void RemoveValue(string item)
-        {
-            ((App)Application.Current).ItemPedido.Remove(item);
-        }
-        
-        private void SetValue(string item, string quantidade)
+        private void SetValue(string item, int quantidade, double preco)
         {
             try
             {
-                ((App)Application.Current).ItemPedido.Add(item, int.Parse(quantidade));
+                ((App)Application.Current).ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
             }
             catch { }
 
+        }
+        
+        private void RemoveValue(string item)
+        {
+            var pedido = ((App)Application.Current).ItemPedido;
+
+            foreach (var pedidoItem in pedido)
+            {
+                if (pedidoItem.Item == item)
+                {
+                    pedido.Remove(pedidoItem);
+                    break;
+                }
+            }
         }
 
         private void Batata100gQt(object sender, TextChangedEventArgs e)

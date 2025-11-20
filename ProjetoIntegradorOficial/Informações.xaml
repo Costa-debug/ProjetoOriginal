@@ -9,7 +9,7 @@
       Title="Informações">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="447" VerticalAlignment="Top" Width="797" Source="/Mac dos Lanche.png"/>
+        <Image HorizontalAlignment="Left" Height="447" VerticalAlignment="Top" Width="797" Source="/Mac dos Lanche (2).png"/>
         <Button Content="" HorizontalAlignment="Left" Height="68" Margin="542,156,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click">
             <Button.Background>
                 <ImageBrush/>

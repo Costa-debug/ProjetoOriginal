@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,20 @@ namespace ProjetoIntegradorOficial
         public Cardápio1()
         {
             InitializeComponent();
+            if (((App)Application.Current).checkBurguer == true)
+            {
+                XBurguer.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkBacon == true)
+            {
+                XBacon.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkFrango == true)
+            {
+                XFrango.IsChecked = true;
+            }
         }
 
         private void Button_Mopções_Click(object sender, RoutedEventArgs e)
@@ -46,11 +61,27 @@ namespace ProjetoIntegradorOficial
         {
             if (XBurguer.IsChecked == true)
             {
-                SetValue(XBurguer.Name, tb_XBurguer.Text);
-                ((App)Application.Current).UpdateQuantidade(XBurguer, tb_XBurguer.Name, tb_XBurguer.Text);
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == XBurguer.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(XBurguer.Name, int.Parse(tb_XBurguer.Text), 20.00);
+                    ((App)Application.Current).UpdateQuantidade(XBurguer, tb_XBurguer.Name, tb_XBurguer.Text);
+                    ((App)Application.Current).checkBurguer = true;
+                }
             }
             else
             {
+                ((App)Application.Current).checkBurguer = false;
                 RemoveValue(XBurguer.Name);
             }
         }
@@ -59,11 +90,13 @@ namespace ProjetoIntegradorOficial
         {
             if (XBacon.IsChecked == true)
             {
-                SetValue(XBacon.Name, tb_XBacon.Text);
+                SetValue(XBacon.Name, int.Parse(tb_XBacon.Text), 25.00);
                 ((App)Application.Current).UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
+                ((App)Application.Current).checkBacon = true;
             }
             else
             {
+                ((App)Application.Current).checkBacon = false;
                 RemoveValue(XBacon.Name);
             }
         }
@@ -72,20 +105,22 @@ namespace ProjetoIntegradorOficial
         {
             if (XFrango.IsChecked == true)
             {
-                SetValue(XFrango.Name, tb_XFrango.Text);
+                SetValue(XFrango.Name, int.Parse(tb_XFrango.Text), 25.00);
                 ((App)Application.Current).UpdateQuantidade(XFrango, tb_XFrango.Name, tb_XFrango.Text);
+                ((App)Application.Current).checkFrango = true;
             }
             else
             {
-                RemoveValue(XBacon.Name);
+                ((App)Application.Current).checkFrango = false;
+                RemoveValue(XFrango.Name);
             }
         }
 
-        private void SetValue(string item, string quantidade)
+        private void SetValue(string item, int quantidade, double preco)
         {
             try
             {
-                ((App)Application.Current).ItemPedido.Add(item, int.Parse(quantidade));
+                ((App)Application.Current).ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
             }
             catch { }
 
@@ -93,7 +128,16 @@ namespace ProjetoIntegradorOficial
 
         private void RemoveValue(string item)
         {
-            ((App)Application.Current).ItemPedido.Remove(item);
+            var pedido = ((App)Application.Current).ItemPedido;
+
+            foreach (var pedidoItem in pedido)
+            {
+                if (pedidoItem.Item == item)
+                {
+                    pedido.Remove(pedidoItem);
+                    break;
+                }
+            }
         }
 
         private void XBurguerQt(object sender, TextChangedEventArgs e)

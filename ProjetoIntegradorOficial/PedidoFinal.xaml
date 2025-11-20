@@ -14,12 +14,13 @@
         <Image HorizontalAlignment="Left" Height="446" VerticalAlignment="Bottom" Width="797" Source="/9.png" Margin="0,0,0,4"/>
         <DataGrid x:Name="dgPedidoFinal" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,225,66,50" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Item" Binding="{Binding Key}" Width="*"/>
-                <DataGridTextColumn Header="Quantidade" Binding="{Binding Value}" Width="Auto"/>
-                <DataGridTextColumn Header="Preço Unitário" Binding="{Binding PrecoUnitario, StringFormat=C}" Width="Auto"/>
-                <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat=C}" Width="Auto"/>
+                <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="*"/>
+                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="Auto"/>
+                <DataGridTextColumn Header="Preço Unitário" Binding="{Binding Preco}" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
+        <TextBox x:Name="tb_NomeCliente" HorizontalAlignment="Left" Margin="57,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="25"/>
+        <TextBox x:Name="tb_TelefoneCliente" HorizontalAlignment="Left" Margin="530,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Height="25"/>
 
 
     </Grid>

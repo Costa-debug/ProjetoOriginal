@@ -23,6 +23,20 @@ namespace ProjetoIntegradorOficial
         public Cardápio2()
         {
             InitializeComponent();
+            if (((App)Application.Current).checkCoração == true)
+            {
+                XCoração.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkEntrevero == true)
+            {
+                XEntrevero.IsChecked = true;
+            }
+
+            if (((App)Application.Current).checkVegetal == true)
+            {
+                XVegetal.IsChecked = true;
+            }
         }
        
         private void Button_Porções_Click(object sender, RoutedEventArgs e)
@@ -51,11 +65,13 @@ namespace ProjetoIntegradorOficial
         {
             if (XCoração.IsChecked == true)
             {
-                SetValue(XCoração.Name, tb_XCoração.Text);
+                SetValue(XCoração.Name, int.Parse(tb_XCoração.Text), 25.00);
                 ((App)Application.Current).UpdateQuantidade(XCoração, tb_XCoração.Name, tb_XCoração.Text);
+                ((App)Application.Current).checkCoração = true;
             }
             else
             {
+                ((App)Application.Current).checkCoração = false;
                 RemoveValue(XCoração.Name);
             }
         }
@@ -64,11 +80,13 @@ namespace ProjetoIntegradorOficial
         {
             if (XEntrevero.IsChecked == true)
             {
-                SetValue(XEntrevero.Name, tb_XEntrevero.Text);
+                SetValue(XEntrevero.Name, int.Parse(tb_XEntrevero.Text), 35.00);
                 ((App)Application.Current).UpdateQuantidade(XEntrevero, tb_XEntrevero.Name, tb_XEntrevero.Text);
+                ((App)Application.Current).checkEntrevero = true;
             }
             else
             {
+                ((App)Application.Current).checkEntrevero = false;
                 RemoveValue(XEntrevero.Name);
             }
         }
@@ -77,20 +95,22 @@ namespace ProjetoIntegradorOficial
         {
             if (XVegetal.IsChecked == true)
             {
-                SetValue(XVegetal.Name, tb_XVegetal.Text);
+                SetValue(XVegetal.Name, int.Parse(tb_XVegetal.Text), 30.00);
                 ((App)Application.Current).UpdateQuantidade(XVegetal, tb_XVegetal.Name, tb_XVegetal.Text);
+                ((App)Application.Current).checkVegetal = true;
             }
             else
             {
+                ((App)Application.Current).checkVegetal = false;
                 RemoveValue(XVegetal.Name);
             }
         }
         
-        private void SetValue(string item, string quantidade)
+        private void SetValue(string item, int quantidade, double preco)
         {
             try
             {
-                ((App)Application.Current).ItemPedido.Add(item, int.Parse(quantidade));
+                ((App)Application.Current).ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
             }
             catch { }
 
@@ -98,7 +118,16 @@ namespace ProjetoIntegradorOficial
 
         private void RemoveValue(string item)
         {
-            ((App)Application.Current).ItemPedido.Remove(item);
+            var pedido = ((App)Application.Current).ItemPedido;
+
+            foreach (var pedidoItem in pedido)
+            {
+                if (pedidoItem.Item == item)
+                {
+                    pedido.Remove(pedidoItem);
+                    break;
+                }
+            }
         }
 
         private void XCoraçãoQt(object sender, TextChangedEventArgs e)
