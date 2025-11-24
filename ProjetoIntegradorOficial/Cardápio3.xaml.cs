@@ -65,9 +65,23 @@ namespace ProjetoIntegradorOficial
         {
             if (Batata100g.IsChecked == true)
             {
-                SetValue(Batata100g.Name, int.Parse(tb_Batata100g.Text), 10.00);
-                ((App)Application.Current).UpdateQuantidade(Batata100g, tb_Batata100g.Name, tb_Batata100g.Text);
-                ((App)Application.Current).checkBatata100g = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == Batata100g.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(Batata100g.Name, int.Parse(tb_Batata100g.Text), 10.00);
+                    ((App)Application.Current).UpdateQuantidade(Batata100g, tb_Batata100g.Name, tb_Batata100g.Text);
+                    ((App)Application.Current).checkBatata100g = true;
+                }
             }
             else
             {
@@ -80,13 +94,27 @@ namespace ProjetoIntegradorOficial
         {
             if (Batata200g.IsChecked == true)
             {
-                SetValue(Batata200g.Name, int.Parse(tb_Batata200g.Text), 15.00);
-                ((App)Application.Current).UpdateQuantidade(Batata200g, tb_Batata200g.Name, tb_Batata200g.Text);
-                ((App)Application.Current).checkBatata200g = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == Batata200g.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(Batata200g.Name, int.Parse(tb_Batata200g.Text), 15.00);
+                    ((App)Application.Current).UpdateQuantidade(Batata200g, tb_Batata200g.Name, tb_Batata200g.Text);
+                    ((App)Application.Current).checkBatata200g = true;
+                }
             }
             else
             {
-                ((App)Application.Current).checkBatata200g = true;
+                ((App)Application.Current).checkBatata200g = false;
                 RemoveValue(Batata200g.Name);
             }
         }
@@ -95,13 +123,27 @@ namespace ProjetoIntegradorOficial
         {
             if (Batata400g.IsChecked == true)
             {
-                SetValue(Batata400g.Name, int.Parse(tb_Batata400g.Text), 20.00);
-                ((App)Application.Current).UpdateQuantidade(Batata400g, tb_Batata400g.Name, tb_Batata400g.Text);
-                ((App)Application.Current).checkBatata400g = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == Batata400g.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(Batata400g.Name, int.Parse(tb_Batata400g.Text), 20.00);
+                    ((App)Application.Current).UpdateQuantidade(Batata400g, tb_Batata400g.Name, tb_Batata400g.Text);
+                    ((App)Application.Current).checkBatata400g = true;
+                }
             }
             else
             {
-                ((App)Application.Current).checkBatata400g = true;
+                ((App)Application.Current).checkBatata400g = false;
                 RemoveValue(Batata400g.Name);
             }
         }

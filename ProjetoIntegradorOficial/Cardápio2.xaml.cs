@@ -65,9 +65,23 @@ namespace ProjetoIntegradorOficial
         {
             if (XCoração.IsChecked == true)
             {
-                SetValue(XCoração.Name, int.Parse(tb_XCoração.Text), 25.00);
-                ((App)Application.Current).UpdateQuantidade(XCoração, tb_XCoração.Name, tb_XCoração.Text);
-                ((App)Application.Current).checkCoração = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == XCoração.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(XCoração.Name, int.Parse(tb_XCoração.Text), 25.00);
+                    ((App)Application.Current).UpdateQuantidade(XCoração, tb_XCoração.Name, tb_XCoração.Text);
+                    ((App)Application.Current).checkCoração = true;
+                }
             }
             else
             {
@@ -80,13 +94,27 @@ namespace ProjetoIntegradorOficial
         {
             if (XEntrevero.IsChecked == true)
             {
-                SetValue(XEntrevero.Name, int.Parse(tb_XEntrevero.Text), 35.00);
-                ((App)Application.Current).UpdateQuantidade(XEntrevero, tb_XEntrevero.Name, tb_XEntrevero.Text);
-                ((App)Application.Current).checkEntrevero = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == XEntrevero.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(XEntrevero.Name, int.Parse(tb_XEntrevero.Text), 35.00);
+                    ((App)Application.Current).UpdateQuantidade(XEntrevero, tb_XEntrevero.Name, tb_XEntrevero.Text);
+                    ((App)Application.Current).checkEntrevero = true;
+                }
             }
             else
             {
-                ((App)Application.Current).checkEntrevero = false;
+                ((App)Application.Current).checkBurguer = false;
                 RemoveValue(XEntrevero.Name);
             }
         }
@@ -95,9 +123,23 @@ namespace ProjetoIntegradorOficial
         {
             if (XVegetal.IsChecked == true)
             {
-                SetValue(XVegetal.Name, int.Parse(tb_XVegetal.Text), 30.00);
-                ((App)Application.Current).UpdateQuantidade(XVegetal, tb_XVegetal.Name, tb_XVegetal.Text);
-                ((App)Application.Current).checkVegetal = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == XVegetal.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(XVegetal.Name, int.Parse(tb_XVegetal.Text), 30.00);
+                    ((App)Application.Current).UpdateQuantidade(XVegetal, tb_XVegetal.Name, tb_XVegetal.Text);
+                    ((App)Application.Current).checkVegetal = true;
+                }
             }
             else
             {

@@ -57,9 +57,23 @@ namespace ProjetoIntegradorOficial
         {
             if (Coca.IsChecked == true)
             {
-                SetValue(Coca.Name, int.Parse(tb_Coca.Text), 5.00);
-                ((App)Application.Current).UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);
-                ((App)Application.Current).checkCoca = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == Coca.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(Coca.Name, int.Parse(tb_Coca.Text), 5.00);
+                    ((App)Application.Current).UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);
+                    ((App)Application.Current).checkCoca = true;
+                }
             }
             else
             {
@@ -72,9 +86,23 @@ namespace ProjetoIntegradorOficial
         {
             if (Água.IsChecked == true)
             {
-                SetValue(Água.Name, int.Parse(tb_Água.Text), 3.00);
-                ((App)Application.Current).UpdateQuantidade(Água, tb_Água.Name, tb_Água.Text);
-                ((App)Application.Current).checkÁgua = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == Água.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(Água.Name, int.Parse(tb_Água.Text), 3.00);
+                    ((App)Application.Current).UpdateQuantidade(Água, tb_Água.Name, tb_Água.Text);
+                    ((App)Application.Current).checkÁgua = true;
+                }
             }
             else
             {
@@ -87,9 +115,23 @@ namespace ProjetoIntegradorOficial
         {
             if (Suco.IsChecked == true)
             {
-                SetValue(Suco.Name, int.Parse(tb_Suco.Text), 7.00);
-                ((App)Application.Current).UpdateQuantidade(Suco, tb_Suco.Name, tb_Suco.Text);
-                ((App)Application.Current).checkSuco = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == Suco.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(Suco.Name, int.Parse(tb_Suco.Text), 7.00);
+                    ((App)Application.Current).UpdateQuantidade(Suco, tb_Suco.Name, tb_Suco.Text);
+                    ((App)Application.Current).checkSuco = true;
+                }
             }
             else
             {

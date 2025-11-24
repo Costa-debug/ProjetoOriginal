@@ -25,6 +25,14 @@ namespace ProjetoIntegradorOficial
             InitializeComponent();
 
             dgPedidoFinal.ItemsSource= ((App)Application.Current).ItemPedido;
+            tb_NomeCliente.Text = ((App)Application.Current).Nome;
+            tb_TelefoneCliente.Text = ((App)Application.Current).Telefone;
+            var total = 0.0;
+            foreach (var item in ((App)Application.Current).ItemPedido)
+            {
+                total += item.Preco * item.Quantidade;
+            }
+            lb_Total.Content = total.ToString("C");
         }
     }
 }

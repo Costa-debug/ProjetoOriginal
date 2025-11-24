@@ -90,9 +90,23 @@ namespace ProjetoIntegradorOficial
         {
             if (XBacon.IsChecked == true)
             {
-                SetValue(XBacon.Name, int.Parse(tb_XBacon.Text), 25.00);
-                ((App)Application.Current).UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
-                ((App)Application.Current).checkBacon = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == XBacon.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(XBacon.Name, int.Parse(tb_XBacon.Text), 25.00);
+                    ((App)Application.Current).UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
+                    ((App)Application.Current).checkBacon = true;
+                }
             }
             else
             {
@@ -105,9 +119,23 @@ namespace ProjetoIntegradorOficial
         {
             if (XFrango.IsChecked == true)
             {
-                SetValue(XFrango.Name, int.Parse(tb_XFrango.Text), 25.00);
-                ((App)Application.Current).UpdateQuantidade(XFrango, tb_XFrango.Name, tb_XFrango.Text);
-                ((App)Application.Current).checkFrango = true;
+                var list = ((App)Application.Current).ItemPedido;
+                var canAdd = true;
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].Item == XFrango.Name)
+                    {
+                        canAdd = false;
+                        break;
+                    }
+                }
+
+                if (canAdd)
+                {
+                    SetValue(XFrango.Name, int.Parse(tb_XFrango.Text), 25.00);
+                    ((App)Application.Current).UpdateQuantidade(XFrango, tb_XFrango.Name, tb_XFrango.Text);
+                    ((App)Application.Current).checkFrango = true;
+                }
             }
             else
             {
