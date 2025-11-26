@@ -9,7 +9,7 @@
       Title="Cardápio3">
 
     <Grid>
-        <Image HorizontalAlignment="Center" Height="450" VerticalAlignment="Center" Width="801" Source="/6.png"/>
+        <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/6.png"/>
         <CheckBox x:Name="Batata100g" Content="" HorizontalAlignment="Left" Margin="448,172,0,0" VerticalAlignment="Top" Checked="Batata100g_Checked" Unchecked="Batata100g_Checked"/>
         <TextBox x:Name="tb_Batata100g" HorizontalAlignment="Left" Margin="473,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="Batata100gQt"/>
         <CheckBox x:Name="Batata200g" Content="" HorizontalAlignment="Left" Margin="448,243,0,0" VerticalAlignment="Top" Checked="Batata200g_Checked" Unchecked="Batata200g_Checked"/>

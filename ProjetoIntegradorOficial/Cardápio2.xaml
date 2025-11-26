@@ -9,7 +9,7 @@
       Title="Cardápio2">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="450" VerticalAlignment="Center" Width="803" Source="/5.png" RenderTransformOrigin="0.542,0.51"/>
+        <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/5.png" RenderTransformOrigin="0.542,0.51"/>
         <CheckBox x:Name="XCoração" Content="" HorizontalAlignment="Left" Margin="443,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.571,0.99" Checked="XCoração_Checked" Unchecked="XCoração_Checked"/>
         <CheckBox x:Name="XEntrevero" Content="" HorizontalAlignment="Left" Margin="443,243,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.571,0.99" Checked="XEntrevero_Checked" Unchecked="XEntrevero_Checked"/>
         <CheckBox x:Name="XVegetal" Content="" HorizontalAlignment="Left" Margin="443,313,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.571,0.99" Checked="XVegetal_Checked" Unchecked="XVegetal_Checked"/>

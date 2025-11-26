@@ -13,7 +13,7 @@ namespace ProjetoIntegradorOficial
     public partial class App : Application
     {
         public List<PedidoFinalInfo> ItemPedido = new List<PedidoFinalInfo>();
-
+       
         public bool checkBurguer { get; set; }
         public bool checkBacon { get; set; }
         public bool checkFrango { get; set; }

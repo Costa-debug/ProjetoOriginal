@@ -9,20 +9,22 @@
       Title="Cadastro">
 
     <Grid>
-        <Image Margin="0,0,4,3" HorizontalAlignment="Right" Width="796" Height="447" VerticalAlignment="Bottom" Source="/2.png"/>
-        <TextBox x:Name="tb_Nome" HorizontalAlignment="Left" Margin="447,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="29" BorderBrush="Black">
-            <TextBox.Background>
-                <ImageBrush/>
-            </TextBox.Background>
-        </TextBox>
-        <Label Content="Nome:" HorizontalAlignment="Left" Margin="436,106,0,0" VerticalAlignment="Top"/>
-        <Label Content="Telefone:" HorizontalAlignment="Left" Margin="436,198,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tb_Telefone" HorizontalAlignment="Left" Margin="447,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="29" BorderBrush="Black">
-            <TextBox.Background>
-                <ImageBrush/>
-            </TextBox.Background>
-        </TextBox>
-        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="454,302,0,0" VerticalAlignment="Top" Height="63" Width="166" Background="#FFDEB881" Click="Button_Click"/>
+            <Image Stretch="Fill" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/2.png"/>
+        <Canvas Width="800" Height="450">
+            <TextBox x:Name="tb_Nome" HorizontalAlignment="Left" Margin="447,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="29" BorderBrush="Black">
+                <TextBox.Background>
+                    <ImageBrush/>
+                </TextBox.Background>
+            </TextBox>
+            <Label Content="Nome:" HorizontalAlignment="Left" Margin="436,106,0,0" VerticalAlignment="Top"/>
+            <Label Content="Telefone:" HorizontalAlignment="Left" Margin="436,198,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="tb_Telefone" HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Width="181" Height="29" BorderBrush="Black" Margin="447,229,0,0">
+                <TextBox.Background>
+                    <ImageBrush/>
+                </TextBox.Background>
+            </TextBox>
+            <Button Content="Cadastrar" HorizontalAlignment="Center" Margin="454,302,0,0" VerticalAlignment="Center" Height="63" Width="166" Background="#FFDEB881" Click="Button_Click"/>
 
+        </Canvas>
     </Grid>
 </Page>

@@ -9,7 +9,7 @@
       Title="PedidoFinal">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="446" VerticalAlignment="Bottom" Width="797" Source="/9.png" Margin="0,0,0,4"/>
+        <Image HorizontalAlignment="Center" VerticalAlignment="Center" Source="/9.png" Margin="0,0,0,4"/>
 
         <Image HorizontalAlignment="Left" Height="446" VerticalAlignment="Bottom" Width="797" Source="/9.png" Margin="0,0,0,4"/>
         <DataGrid x:Name="dgPedidoFinal" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,225,66,50" >

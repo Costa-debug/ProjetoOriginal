@@ -14,7 +14,7 @@
                 <ImageBrush/>
             </Button.OpacityMask>
         </Button>
-        <Image HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="854" Source="/Mc dos Lanche.png"/>
+        <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Mc dos Lanche.png"/>
         <Button x:Name="CapaButton" Content="" HorizontalAlignment="Left" Margin="60,358,0,0" VerticalAlignment="Top" Height="55" Width="145" Click="CapaButton_Click">
             <Button.Background>
                 <ImageBrush/>

@@ -9,7 +9,7 @@
       Title="Cardápio1">
 
     <Grid>
-        <Image HorizontalAlignment="Left" Height="446" VerticalAlignment="Top" Width="797" Source="/4.png" Margin="0,4,0,0"/>
+        <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/4.png" Margin="0,0,0,0"/>
         <Button x:Name="Button_Mopções" Content="Mais Opções" HorizontalAlignment="Left" Margin="630,380,0,0" VerticalAlignment="Top" Height="48" Width="136" Background="#FFE4B100" Click="Button_Mopções_Click" />
         <Button x:Name="Button_Finalisar1" Content="Finalisar" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Finalisar1_Click"/>
         <CheckBox x:Name="XBurguer" HorizontalAlignment="Left" Margin="444,171,0,0" VerticalAlignment="Top" Width="18" Checked="CheckXburguer" Unchecked="CheckXburguer"/>
