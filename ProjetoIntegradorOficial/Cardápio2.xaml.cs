@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mysqlx.Crud;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,30 +21,50 @@ namespace ProjetoIntegradorOficial
     /// </summary>
     public partial class Cardápio2 : Page
     {
+        private App app = (App)Application.Current;
+
         public Cardápio2()
         {
             InitializeComponent();
-            if (((App)Application.Current).checkCoração == true)
+            var item = ((App)Application.Current).tb_Quantidade;
+
+            for (int i = 0; i < item.Count; i++)
             {
-                XCoração.IsChecked = true;
+                if (app.checkCoração == true)
+                {
+                    XCoração.IsChecked = true;
+                    if (item[i].Name == tb_XCoração.Name)
+                    {
+                        tb_XCoração.Text = item[i].Text;
+                    }
+                }
+
+                if (app.checkEntrevero == true)
+                {
+                    XEntrevero.IsChecked = true;
+                    if (item[i].Name == tb_XEntrevero.Name)
+                    {
+                        tb_XEntrevero.Text = item[i].Text;
+                    }
+                }
+
+                if (app.checkVegetal == true)
+                {
+                    XVegetal.IsChecked = true;
+                    if (item[i].Name == tb_XVegetal.Name)
+                    {
+                        tb_XVegetal.Text = item[i].Text;
+                    }
+                }
             }
 
-            if (((App)Application.Current).checkEntrevero == true)
-            {
-                XEntrevero.IsChecked = true;
-            }
-
-            if (((App)Application.Current).checkVegetal == true)
-            {
-                XVegetal.IsChecked = true;
-            }
         }
-       
+
         private void Button_Porções_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Cardápio3());
         }
-        
+
         private void Button_Voltar1_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Cardápio1());
@@ -51,7 +72,7 @@ namespace ProjetoIntegradorOficial
 
         private void Button_Finalisar2_Click(object sender, RoutedEventArgs e)
         {
-            if (((App)Application.Current).ItemPedido.Count > 0)
+            if (app.ItemPedido.Count > 0)
             {
                 NavigationService.Navigate(new PedidoFinal());
             }
@@ -65,7 +86,7 @@ namespace ProjetoIntegradorOficial
         {
             if (XCoração.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -79,13 +100,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(XCoração.Name, int.Parse(tb_XCoração.Text), 25.00);
-                    ((App)Application.Current).UpdateQuantidade(XCoração, tb_XCoração.Name, tb_XCoração.Text);
-                    ((App)Application.Current).checkCoração = true;
+                    app.UpdateQuantidade(XCoração, tb_XCoração.Name, tb_XCoração.Text);
+                    app.checkCoração = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkCoração = false;
+                app.checkCoração = false;
                 RemoveValue(XCoração.Name);
             }
         }
@@ -94,7 +115,7 @@ namespace ProjetoIntegradorOficial
         {
             if (XEntrevero.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -108,13 +129,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(XEntrevero.Name, int.Parse(tb_XEntrevero.Text), 35.00);
-                    ((App)Application.Current).UpdateQuantidade(XEntrevero, tb_XEntrevero.Name, tb_XEntrevero.Text);
-                    ((App)Application.Current).checkEntrevero = true;
+                    app.UpdateQuantidade(XEntrevero, tb_XEntrevero.Name, tb_XEntrevero.Text);
+                    app.checkEntrevero = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkBurguer = false;
+                app.checkBurguer = false;
                 RemoveValue(XEntrevero.Name);
             }
         }
@@ -123,7 +144,7 @@ namespace ProjetoIntegradorOficial
         {
             if (XVegetal.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -137,22 +158,22 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(XVegetal.Name, int.Parse(tb_XVegetal.Text), 30.00);
-                    ((App)Application.Current).UpdateQuantidade(XVegetal, tb_XVegetal.Name, tb_XVegetal.Text);
-                    ((App)Application.Current).checkVegetal = true;
+                    app.UpdateQuantidade(XVegetal, tb_XVegetal.Name, tb_XVegetal.Text);
+                    app.checkVegetal = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkVegetal = false;
+                app.checkVegetal = false;
                 RemoveValue(XVegetal.Name);
             }
         }
-        
+
         private void SetValue(string item, int quantidade, double preco)
         {
             try
             {
-                ((App)Application.Current).ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
+                app.ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
             }
             catch { }
 
@@ -160,7 +181,7 @@ namespace ProjetoIntegradorOficial
 
         private void RemoveValue(string item)
         {
-            var pedido = ((App)Application.Current).ItemPedido;
+            var pedido = app.ItemPedido;
 
             foreach (var pedidoItem in pedido)
             {
@@ -174,17 +195,20 @@ namespace ProjetoIntegradorOficial
 
         private void XCoraçãoQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(XCoração,tb_XCoração.Name, tb_XCoração.Text);
+            app.InsertQt(tb_XCoração);
+            app.UpdateQuantidade(XCoração, tb_XCoração.Name, tb_XCoração.Text);
         }
 
         private void XEntreveroQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(XEntrevero, tb_XEntrevero.Name, tb_XEntrevero.Text);
+            app.InsertQt(tb_XEntrevero);
+            app.UpdateQuantidade(XEntrevero, tb_XEntrevero.Name, tb_XEntrevero.Text);
         }
 
         private void XVegetalQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(XVegetal, tb_XVegetal.Name, tb_XVegetal.Text);
+            app.InsertQt(tb_XVegetal);
+            app.UpdateQuantidade(XVegetal, tb_XVegetal.Name, tb_XVegetal.Text);
         }
     }
 }

@@ -17,22 +17,41 @@ namespace ProjetoIntegradorOficial
 {
     public partial class Cardápio4 : Page
     {
+        private App app = (App)Application.Current;
+
         public Cardápio4()
         {
             InitializeComponent();
-            if (((App)Application.Current).checkCoca == true)
-            {
-                Coca.IsChecked = true;
-            }
+            var item = ((App)Application.Current).tb_Quantidade;
 
-            if (((App)Application.Current).checkÁgua == true)
+            for (int i = 0; i < item.Count; i++)
             {
-                Água.IsChecked = true;
-            }
+                if (app.checkCoca == true)
+                {
+                    Coca.IsChecked = true;
+                    if (item[i].Name == tb_Coca.Name)
+                    {
+                        tb_Coca.Text = item[i].Text;
+                    }
+                }
+                
+                if (app.checkÁgua == true)
+                {
+                    Água.IsChecked = true;
+                    if (item[i].Name == tb_Água.Name)
+                    {
+                        tb_Água.Text = item[i].Text;
+                    }
+                }
 
-            if (((App)Application.Current).checkSuco == true)
-            {
-                Suco.IsChecked = true;
+                if (app.checkSuco == true)
+                {
+                    Suco.IsChecked = true;
+                    if (item[i].Name == tb_Suco.Name)
+                    {
+                        tb_Suco.Text = item[i].Text;
+                    }
+                }
             }
         }
 
@@ -43,7 +62,7 @@ namespace ProjetoIntegradorOficial
 
         private void Button_Finalisar4_Click(object sender, RoutedEventArgs e)
         {
-            if (((App)Application.Current).ItemPedido.Count > 0)
+            if (app.ItemPedido.Count > 0)
             {
                 NavigationService.Navigate(new PedidoFinal());
             }
@@ -57,7 +76,7 @@ namespace ProjetoIntegradorOficial
         {
             if (Coca.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -71,13 +90,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(Coca.Name, int.Parse(tb_Coca.Text), 5.00);
-                    ((App)Application.Current).UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);
-                    ((App)Application.Current).checkCoca = true;
+                    app.UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);
+                    app.checkCoca = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkCoca = false;
+                app.checkCoca = false;
                 RemoveValue(Coca.Name);
             }
         }
@@ -86,7 +105,7 @@ namespace ProjetoIntegradorOficial
         {
             if (Água.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -100,13 +119,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(Água.Name, int.Parse(tb_Água.Text), 3.00);
-                    ((App)Application.Current).UpdateQuantidade(Água, tb_Água.Name, tb_Água.Text);
-                    ((App)Application.Current).checkÁgua = true;
+                    app.UpdateQuantidade(Água, tb_Água.Name, tb_Água.Text);
+                    app.checkÁgua = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkÁgua = false;
+                app.checkÁgua = false;
                 RemoveValue(Água.Name);
             }
         }
@@ -115,7 +134,7 @@ namespace ProjetoIntegradorOficial
         {
             if (Suco.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -129,13 +148,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(Suco.Name, int.Parse(tb_Suco.Text), 7.00);
-                    ((App)Application.Current).UpdateQuantidade(Suco, tb_Suco.Name, tb_Suco.Text);
-                    ((App)Application.Current).checkSuco = true;
+                    app.UpdateQuantidade(Suco, tb_Suco.Name, tb_Suco.Text);
+                    app.checkSuco = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkSuco = false;
+                app.checkSuco = false;
                 RemoveValue(Suco.Name);
             }
         }
@@ -144,7 +163,7 @@ namespace ProjetoIntegradorOficial
         {
             try
             {
-                ((App)Application.Current).ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
+                app.ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
             }
             catch { }
 
@@ -152,7 +171,7 @@ namespace ProjetoIntegradorOficial
         
         private void RemoveValue(string item)
         {
-            var pedido = ((App)Application.Current).ItemPedido;
+            var pedido = app.ItemPedido;
 
             foreach (var pedidoItem in pedido)
             {
@@ -166,17 +185,20 @@ namespace ProjetoIntegradorOficial
        
         private void CocaQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);
+            app.InsertQt(tb_Coca);
+            app.UpdateQuantidade(Coca, tb_Coca.Name, tb_Coca.Text);
         }
 
         private void ÁguaQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(Água, tb_Água.Name, tb_Água.Text);
+            app.InsertQt(tb_Água);
+            app.UpdateQuantidade(Água, tb_Água.Name, tb_Água.Text);
         }
 
         private void SucoQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(Suco, tb_Suco.Name, tb_Suco.Text);
+            app.InsertQt(tb_Suco);
+            app.UpdateQuantidade(Suco, tb_Suco.Name, tb_Suco.Text);
         }
     }
 }

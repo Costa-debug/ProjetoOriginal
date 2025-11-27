@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using Google.Protobuf.WellKnownTypes;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 using System.Windows.Controls;
@@ -14,6 +15,7 @@ namespace ProjetoIntegradorOficial
     {
         public List<PedidoFinalInfo> ItemPedido = new List<PedidoFinalInfo>();
        
+        public List<TextBox> tb_Quantidade = new List<TextBox>();
         public bool checkBurguer { get; set; }
         public bool checkBacon { get; set; }
         public bool checkFrango { get; set; }
@@ -39,6 +41,14 @@ namespace ProjetoIntegradorOficial
                     ItemPedido.Last().Quantidade = int.Parse(qt);
             }
             catch { }
+        }
+
+        public void InsertQt(TextBox itmAdd)
+        {
+            if (!tb_Quantidade.Contains(itmAdd))
+            {
+                tb_Quantidade.Add(itmAdd);
+            }
         }
     }
 

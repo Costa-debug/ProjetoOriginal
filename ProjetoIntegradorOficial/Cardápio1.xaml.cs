@@ -21,22 +21,41 @@ namespace ProjetoIntegradorOficial
     /// </summary>
     public partial class Cardápio1 : Page
     {
+        private App app = (App)Application.Current;
+
         public Cardápio1()
         {
             InitializeComponent();
-            if (((App)Application.Current).checkBurguer == true)
-            {
-                XBurguer.IsChecked = true;
-            }
+            var item = ((App)Application.Current).tb_Quantidade;
 
-            if (((App)Application.Current).checkBacon == true)
+            for (int i = 0; i < item.Count; i++)
             {
-                XBacon.IsChecked = true;
-            }
+                if (app.checkBurguer == true)
+                {
+                    XBurguer.IsChecked = true;
+                    if (item[i].Name == tb_XBurguer.Name)
+                    {
+                        tb_XBurguer.Text = item[i].Text;
+                    }
+                }
 
-            if (((App)Application.Current).checkFrango == true)
-            {
-                XFrango.IsChecked = true;
+                if (app.checkBacon == true)
+                {
+                    XBacon.IsChecked = true;
+                    if (item[i].Name == tb_XBacon.Name)
+                    {
+                        tb_XBacon.Text = item[i].Text;
+                    }
+                }
+
+                if (app.checkFrango == true)
+                {
+                    XFrango.IsChecked = true;
+                    if (item[i].Name == tb_XFrango.Name)
+                    {
+                        tb_XFrango.Text = item[i].Text;
+                    }
+                }
             }
         }
 
@@ -47,7 +66,7 @@ namespace ProjetoIntegradorOficial
 
         private void Button_Finalisar1_Click(object sender, RoutedEventArgs e)
         {
-            if (((App)Application.Current).ItemPedido.Count > 0)
+            if (app.ItemPedido.Count > 0)
             {
                 NavigationService.Navigate(new PedidoFinal());
             }
@@ -61,7 +80,7 @@ namespace ProjetoIntegradorOficial
         {
             if (XBurguer.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -75,13 +94,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(XBurguer.Name, int.Parse(tb_XBurguer.Text), 20.00);
-                    ((App)Application.Current).UpdateQuantidade(XBurguer, tb_XBurguer.Name, tb_XBurguer.Text);
-                    ((App)Application.Current).checkBurguer = true;
+                    app.UpdateQuantidade(XBurguer, tb_XBurguer.Name, tb_XBurguer.Text);
+                    app.checkBurguer = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkBurguer = false;
+                app.checkBurguer = false;
                 RemoveValue(XBurguer.Name);
             }
         }
@@ -90,7 +109,7 @@ namespace ProjetoIntegradorOficial
         {
             if (XBacon.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -104,13 +123,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(XBacon.Name, int.Parse(tb_XBacon.Text), 25.00);
-                    ((App)Application.Current).UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
-                    ((App)Application.Current).checkBacon = true;
+                    app.UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
+                    app.checkBacon = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkBacon = false;
+                app.checkBacon = false;
                 RemoveValue(XBacon.Name);
             }
         }
@@ -119,7 +138,7 @@ namespace ProjetoIntegradorOficial
         {
             if (XFrango.IsChecked == true)
             {
-                var list = ((App)Application.Current).ItemPedido;
+                var list = app.ItemPedido;
                 var canAdd = true;
                 for (int i = 0; i < list.Count; i++)
                 {
@@ -133,13 +152,13 @@ namespace ProjetoIntegradorOficial
                 if (canAdd)
                 {
                     SetValue(XFrango.Name, int.Parse(tb_XFrango.Text), 25.00);
-                    ((App)Application.Current).UpdateQuantidade(XFrango, tb_XFrango.Name, tb_XFrango.Text);
-                    ((App)Application.Current).checkFrango = true;
+                    app.UpdateQuantidade(XFrango, tb_XFrango.Name, tb_XFrango.Text);
+                    app.checkFrango = true;
                 }
             }
             else
             {
-                ((App)Application.Current).checkFrango = false;
+                app.checkFrango = false;
                 RemoveValue(XFrango.Name);
             }
         }
@@ -148,7 +167,7 @@ namespace ProjetoIntegradorOficial
         {
             try
             {
-                ((App)Application.Current).ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
+                app.ItemPedido.Add(new PedidoFinalInfo(item, quantidade, preco, quantidade));
             }
             catch { }
 
@@ -156,7 +175,7 @@ namespace ProjetoIntegradorOficial
 
         private void RemoveValue(string item)
         {
-            var pedido = ((App)Application.Current).ItemPedido;
+            var pedido = app.ItemPedido;
 
             foreach (var pedidoItem in pedido)
             {
@@ -170,17 +189,20 @@ namespace ProjetoIntegradorOficial
 
         private void XBurguerQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(XBurguer, tb_XBurguer.Name, tb_XBurguer.Text);
+            app.InsertQt(tb_XBurguer);
+            app.UpdateQuantidade(XBurguer, tb_XBurguer.Name, tb_XBurguer.Text);
         }
 
         private void XFrangoQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(XFrango, tb_XFrango.Name, tb_XFrango.Text);
+            app.InsertQt(tb_XFrango);
+            app.UpdateQuantidade(XFrango, tb_XFrango.Name, tb_XFrango.Text);
         }
 
         private void XBaconQt(object sender, TextChangedEventArgs e)
         {
-            ((App)Application.Current).UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
+            app.InsertQt(tb_XBacon);
+            app.UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
         }
     }
 }
