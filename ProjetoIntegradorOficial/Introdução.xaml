@@ -8,7 +8,8 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Cadastro">
 
-    <Grid>
+    <Viewbox Stretch="Fill">
+        <Grid Width="800" Height="450">
             <Image Stretch="Fill" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/2.png"/>
         <Canvas Width="800" Height="450">
             <TextBox x:Name="tb_Nome" HorizontalAlignment="Left" Margin="447,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181" Height="29" BorderBrush="Black">
@@ -27,4 +28,5 @@
 
         </Canvas>
     </Grid>
+    </Viewbox>
 </Page>

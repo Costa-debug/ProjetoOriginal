@@ -21,6 +21,8 @@
     <None Remove="images.jpg" />
     <None Remove="Mac dos Lanche %281%29.png" />
     <None Remove="Mac dos Lanche %282%29.png" />
+    <None Remove="Mac dos Lanche %283%29.png" />
+    <None Remove="Mac dos Lanche %284%29.png" />
     <None Remove="Mac dos Lanche.png" />
     <None Remove="Mc dos Lanche.png" />
   </ItemGroup>
@@ -42,6 +44,8 @@
     <Resource Include="images.jpg" />
     <Resource Include="Mac dos Lanche (1).png" />
     <Resource Include="Mac dos Lanche (2).png" />
+    <Resource Include="Mac dos Lanche (3).png" />
+    <Resource Include="Mac dos Lanche (4).png" />
     <Resource Include="Mac dos Lanche.png" />
     <Resource Include="Mc dos Lanche.png" />
   </ItemGroup>

@@ -7,17 +7,19 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Cardápio1">
+    
+    <Viewbox Stretch="Fill">
+        <Grid Width="800" Height="450">
+            <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/4.png" Margin="0,0,0,0"/>
+            <Button x:Name="Button_Mopções" Content="Mais Opções" HorizontalAlignment="Left" Margin="630,380,0,0" VerticalAlignment="Top" Height="48" Width="136" Background="#FFE4B100" Click="Button_Mopções_Click" FontSize="16" />
+            <Button x:Name="Button_Finalisar1" Content="Finalizar" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Finalisar1_Click" FontSize="16"/>
+            <CheckBox x:Name="XBurguer" HorizontalAlignment="Left" Margin="444,171,0,0" VerticalAlignment="Top" Width="18" Checked="CheckXburguer" Unchecked="CheckXburguer"/>
+            <CheckBox x:Name="XBacon" HorizontalAlignment="Left" Margin="444,241,0,0" VerticalAlignment="Top" Checked="XBacon_Checked" Unchecked="XBacon_Checked"/>
+            <CheckBox x:Name="XFrango" HorizontalAlignment="Left" Margin="444,312,0,0" VerticalAlignment="Top" Checked="XFrango_Checked" Unchecked="XFrango_Checked"/>
+            <TextBox x:Name="tb_XBacon" HorizontalAlignment="Left" Margin="465,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBaconQt"/>
+            <TextBox x:Name="tb_XBurguer" HorizontalAlignment="Left" Margin="465,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBurguerQt"/>
+            <TextBox x:Name="tb_XFrango" HorizontalAlignment="Left" Margin="465,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XFrangoQt"/>
 
-    <Grid>
-        <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/4.png" Margin="0,0,0,0"/>
-        <Button x:Name="Button_Mopções" Content="Mais Opções" HorizontalAlignment="Left" Margin="630,380,0,0" VerticalAlignment="Top" Height="48" Width="136" Background="#FFE4B100" Click="Button_Mopções_Click" />
-        <Button x:Name="Button_Finalisar1" Content="Finalisar" HorizontalAlignment="Left" Margin="22,380,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Finalisar1_Click"/>
-        <CheckBox x:Name="XBurguer" HorizontalAlignment="Left" Margin="444,171,0,0" VerticalAlignment="Top" Width="18" Checked="CheckXburguer" Unchecked="CheckXburguer"/>
-        <CheckBox x:Name="XBacon" HorizontalAlignment="Left" Margin="444,241,0,0" VerticalAlignment="Top" Checked="XBacon_Checked" Unchecked="XBacon_Checked"/>
-        <CheckBox x:Name="XFrango" HorizontalAlignment="Left" Margin="444,312,0,0" VerticalAlignment="Top" Checked="XFrango_Checked" Unchecked="XFrango_Checked"/>
-        <TextBox x:Name="tb_XBacon" HorizontalAlignment="Left" Margin="465,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBaconQt"/>
-        <TextBox x:Name="tb_XBurguer" HorizontalAlignment="Left" Margin="465,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBurguerQt"/>
-        <TextBox x:Name="tb_XFrango" HorizontalAlignment="Left" Margin="465,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XFrangoQt"/>
-
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Page>

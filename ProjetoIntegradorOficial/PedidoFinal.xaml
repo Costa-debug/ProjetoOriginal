@@ -8,22 +8,24 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PedidoFinal">
 
-    <Grid>
-        <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/9.png" Margin="0,0,0,4"/>
+    <Viewbox Stretch="Fill">
+        <Grid Width="800" Height="450">
+            <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/9.png" Margin="0,0,0,4"/>
 
-        <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/9.png" Margin="0,0,0,4"/>
-        <DataGrid x:Name="dgPedidoFinal" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,228,55,50" >
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="*"/>
-                <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="Auto"/>
-                <DataGridTextColumn Header="Preço Unitário" Binding="{Binding Preco}" Width="Auto"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <TextBox x:Name="tb_NomeCliente" HorizontalAlignment="Left" Margin="57,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="30" FontSize="14"/>
-        <TextBox x:Name="tb_TelefoneCliente" HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="30" FontSize="14"/>
-        <Label x:Name="lb_Total" Content="" HorizontalAlignment="Left" Height="30" Margin="588,190,0,0" VerticalAlignment="Top" Width="157" Background="White" FontSize="14"/>
-        <Label Content="Total:" HorizontalAlignment="Left" Margin="529,190,0,0" VerticalAlignment="Top" Background="White" Width="54" FontSize="16" Height="30"/>
+            <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Mac dos Lanche.png" Margin="0,0,0,4"/>
+            <DataGrid x:Name="dgPedidoFinal" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,225,55,39" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="*"/>
+                    <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="Auto"/>
+                    <DataGridTextColumn Header="Preço Unitário" Binding="{Binding Preco}" Width="Auto"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBox x:Name="tb_NomeCliente" HorizontalAlignment="Left" Margin="57,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="30" FontSize="14"/>
+            <TextBox x:Name="tb_TelefoneCliente" HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="30" FontSize="14"/>
+            <Label x:Name="lb_Total" Content="" HorizontalAlignment="Left" Height="30" Margin="588,190,0,0" VerticalAlignment="Top" Width="157" Background="White" FontSize="14"/>
+            <Label Content="Total:" HorizontalAlignment="Left" Margin="529,190,0,0" VerticalAlignment="Top" Background="White" Width="54" FontSize="16" Height="30"/>
 
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Page>

@@ -8,13 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Informações">
 
-    <Grid>
-        <Image Stretch="Fill" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Mac dos Lanche (2).png"/>
-        <Button Content="" HorizontalAlignment="Left" Height="68" Margin="542,156,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click">
-            <Button.Background>
-                <ImageBrush/>
-            </Button.Background>
-        </Button>
-
-    </Grid>
+    <Viewbox Stretch="Fill">
+        <Grid Width="800" Height="450">
+            <Image Stretch="Fill" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Mac dos Lanche (2).png"/>
+            <Button Content="" HorizontalAlignment="Left" Height="68" Margin="542,156,0,0" VerticalAlignment="Top" Width="145" Click="Button_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+            </Button>
+        </Grid>
+        </Viewbox>
 </Page>
