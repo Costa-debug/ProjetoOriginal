@@ -31,7 +31,7 @@ namespace ProjetoIntegradorOficial
             ((App)Application.Current).Nome = tb_Nome.Text;
             ((App)Application.Current).Telefone = tb_Telefone.Text;
 
-            NavigationService.Navigate(new Informações());
+            NavigationService.Navigate(new Cardápio1());
         }
     }
 }

@@ -13,7 +13,7 @@
             <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/9.png" Margin="0,0,0,4"/>
 
             <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Mac dos Lanche.png" Margin="0,0,0,4"/>
-            <DataGrid x:Name="dgPedidoFinal" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,225,55,39" >
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,225,55,39" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="*"/>
                     <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="Auto"/>

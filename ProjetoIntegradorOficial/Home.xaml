@@ -21,6 +21,8 @@
                     <ImageBrush/>
                 </Button.Background>
             </Button>
+            <Button x:Name="Button_Nós" Content="Sobre Nós" HorizontalAlignment="Left" Margin="674,372,0,0" VerticalAlignment="Top" Height="46" Width="92" Background="#FFFF9F2A" FontSize="14" Click="Button_Nós_Click"/>
+            <Button x:Name="Button_Administração" Content="Administração" HorizontalAlignment="Left" Margin="674,35,0,0" VerticalAlignment="Top" Height="46" Width="92"  Background="#FFFF9F2A" FontSize="14" Click="Button_Administração_Click"/>
         </Grid>
     </Viewbox>
 </Page>

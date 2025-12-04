@@ -14,7 +14,7 @@ namespace ProjetoIntegradorOficial
     public partial class App : Application
     {
         public List<PedidoFinalInfo> ItemPedido = new List<PedidoFinalInfo>();
-       
+
         public List<TextBox> tb_Quantidade = new List<TextBox>();
         public bool checkBurguer { get; set; }
         public bool checkBacon { get; set; }
@@ -70,4 +70,26 @@ namespace ProjetoIntegradorOficial
             this.Total = Total;
         }
     }
+
+    public class ProdutoEstoque
+    {
+        public string Produto { get; set; }
+
+        public int Quantidade { get; set; }
+
+        public double Preco { get; set; }
+
+        public string Validade { get; set; }
+
+        public ProdutoEstoque(string produto, int quantidade, double preco, string validade)
+        {
+            Produto = produto;
+            Quantidade = quantidade;
+            Preco = preco;
+            Validade = validade;
+        }
+    }
+
 }
+
+

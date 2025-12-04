@@ -28,6 +28,16 @@ namespace ProjetoIntegradorOficial
         private void CapaButton_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Introdução());
+        } 
+
+        private void Button_Administração_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Introdução2());
+        }
+
+        private void Button_Nós_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Informações());
         }
     }
 }

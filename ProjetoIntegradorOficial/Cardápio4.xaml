@@ -10,7 +10,7 @@
 
     <Viewbox Stretch="Fill">
         <Grid Width="800" Height="450">
-            <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Mac dos Lanche (1).png"/>
+            <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/mnmnmn.png"/>
             <CheckBox x:Name="Coca" Content="" HorizontalAlignment="Left" Margin="432,170,0,0" VerticalAlignment="Top" Checked="Coca_Checked" Unchecked="Coca_Checked"/>
             <CheckBox x:Name="Água" Content="" HorizontalAlignment="Left" Margin="432,238,0,0" VerticalAlignment="Top" Checked="Água_Checked" Unchecked="Água_Checked"/>
             <CheckBox x:Name="Suco" Content="" HorizontalAlignment="Left" Margin="432,309,0,0" VerticalAlignment="Top" Checked="Suco_Checked" Unchecked="Suco_Checked"/>

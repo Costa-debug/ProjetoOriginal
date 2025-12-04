@@ -16,18 +16,28 @@ using System.Windows.Shapes;
 namespace ProjetoIntegradorOficial
 {
     /// <summary>
-    /// Interação lógica para Informações.xam
+    /// Interação lógica para Introdução2.xam
     /// </summary>
-    public partial class Informações : Page
+    public partial class Introdução2 : Page
     {
-        public Informações()
+        public Introdução2()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Voltar_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Home());
+        }
+
+        private void Button_Produto_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Produto());
+        }
+
+        private void Button_Estoque_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Estoque());
         }
     }
 }
