@@ -10,8 +10,8 @@
 
     <Viewbox Stretch="Fill">
         <Grid Width="800" Height="450">
-            <Image Stretch="Fill" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/DALLEE.png"/>
-            <Button Content="" HorizontalAlignment="Left" Height="68" Margin="544,157,0,0" VerticalAlignment="Top" Width="146" Click="Button_Click" FontSize="14">
+            <Image Stretch="Fill" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/ttrtty.png"/>
+            <Button Content="" HorizontalAlignment="Left" Height="68" Margin="56,30,0,0" VerticalAlignment="Top" Width="146" Click="Button_Click" FontSize="14">
                 <Button.Background>
                     <ImageBrush/>
                 </Button.Background>

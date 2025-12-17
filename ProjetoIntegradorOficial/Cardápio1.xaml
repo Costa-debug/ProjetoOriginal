@@ -19,6 +19,7 @@
             <TextBox x:Name="tb_XBacon" HorizontalAlignment="Left" Margin="465,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBaconQt"/>
             <TextBox x:Name="tb_XBurguer" HorizontalAlignment="Left" Margin="465,171,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XBurguerQt"/>
             <TextBox x:Name="tb_XFrango" HorizontalAlignment="Left" Margin="465,312,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="19" Text="1" TextChanged="XFrangoQt"/>
+            <Button x:Name="Button_Voltar6" Content="Voltar" HorizontalAlignment="Left" Margin="632,27,0,0" VerticalAlignment="Top" Height="48" Width="134" Background="#FFE4B100" Click="Button_Voltar1_Click" FontSize="16"/>
 
         </Grid>
     </Viewbox>

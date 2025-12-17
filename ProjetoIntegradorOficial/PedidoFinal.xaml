@@ -12,8 +12,8 @@
         <Grid Width="800" Height="450">
             <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/9.png" Margin="0,0,0,4"/>
 
-            <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/Mac dos Lanche.png" Margin="0,0,0,4"/>
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,225,55,39" >
+            <Image Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Source="/,,ll....png" Margin="0,0,0,4"/>
+            <DataGrid x:Name="dtPedido" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" FontSize="18" Margin="57,225,55,39" >
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Item" Binding="{Binding Item}" Width="*"/>
                     <DataGridTextColumn Header="Quantidade" Binding="{Binding Quantidade}" Width="Auto"/>
@@ -24,6 +24,7 @@
             <TextBox x:Name="tb_TelefoneCliente" HorizontalAlignment="Center" Margin="0,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" Height="30" FontSize="14"/>
             <Label x:Name="lb_Total" Content="" HorizontalAlignment="Left" Height="30" Margin="588,190,0,0" VerticalAlignment="Top" Width="157" Background="White" FontSize="14"/>
             <Label Content="Total:" HorizontalAlignment="Left" Margin="529,190,0,0" VerticalAlignment="Top" Background="White" Width="54" FontSize="16" Height="30"/>
+            <Button x:Name="Button_FinalisarPedido" Content="Finalizar Pedido" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" Height="70" Width="150" Background="#FFFF4F33" Click="Button_Finalisar4_Click" FontSize="18" />
 
 
         </Grid>

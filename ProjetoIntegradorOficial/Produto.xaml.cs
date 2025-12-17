@@ -33,13 +33,12 @@ namespace ProjetoIntegradorOficial
 
         private void Button_Concluir_Click(object sender, RoutedEventArgs e)
         {
-            var sql = $"INSERT INTO estoque (produto, quantidade, preco, validade) VALUES (@produto, @quantidade, @preco, @validade)";
+            var sql = $"INSERT INTO estoque (produto, quantidade, preco) VALUES (@produto, @quantidade, @preco)";
             MySqlCommand cmd = new MySqlCommand(sql, ConectarBD.Conexao);
 
             cmd.Parameters.AddWithValue("@produto", tb_ProdutoN.Text);
             cmd.Parameters.AddWithValue("@quantidade", int.Parse(tb_QuantidadeN.Text));
             cmd.Parameters.AddWithValue("@preco", double.Parse(tb_PreçoN.Text));
-            cmd.Parameters.AddWithValue("@validade", dt_Validade.Text);
             cmd.ExecuteNonQuery();
 
             MessageBox.Show("Produto cadastrado com sucesso!", "Atenção", MessageBoxButton.OK, MessageBoxImage.Warning);

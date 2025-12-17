@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using Mysqlx.Crud;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,7 +26,8 @@ namespace ProjetoIntegradorOficial
         {
             InitializeComponent();
 
-            //dgPedidoFinal.ItemsSource= ((App)Application.Current).ItemPedido;
+            dtPedido.ItemsSource = ((App)Application.Current).ItemPedido;
+
             tb_NomeCliente.Text = ((App)Application.Current).Nome;
             tb_TelefoneCliente.Text = ((App)Application.Current).Telefone;
             var total = 0.0;
@@ -34,5 +37,28 @@ namespace ProjetoIntegradorOficial
             }
             lb_Total.Content = total.ToString("C");
         }
+
+        private void Button_Finalisar4_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in ((App)Application.Current).ItemPedido)
+            {
+
+                var sql = "UPDATE estoque SET quantidade = GREATEST(quantidade - @quantidade, 0) WHERE produto = @item";
+
+                MySqlCommand cmd = new MySqlCommand(sql, ConectarBD.Conexao);
+
+                cmd.Parameters.AddWithValue("@quantidade", item.Quantidade);
+                cmd.Parameters.AddWithValue("@item", item.Item);
+
+                cmd.ExecuteNonQuery();
+            }
+
+            NavigationService.Navigate(new Home());
+        }
+    }
+
+    public class Pedido
+    {
+
     }
 }

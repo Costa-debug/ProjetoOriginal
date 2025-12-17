@@ -33,7 +33,32 @@ namespace ProjetoIntegradorOficial
         {
             InitializeComponent();
 
-            string sql = "SELECT produto, quantidade, preco, validade FROM estoque";
+            Atualizar();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Introdução2());
+        }
+
+        private void Remover_Click(object sender, RoutedEventArgs e)
+        {
+            var curId = (EstoqueItem)dtEstoque.SelectedItem;
+            string sql = "DELETE FROM estoque WHERE produto = @id";
+            using (MySqlCommand cmd = new MySqlCommand(sql, ConectarBD.Conexao))
+            {
+                cmd.Parameters.AddWithValue("@id", curId.Produto);
+                cmd.ExecuteNonQuery();
+            }
+
+            Atualizar();
+        }
+
+        private void Atualizar()
+        {
+            string sql = "SELECT * FROM estoque";
+
             MySqlCommand cmd = new MySqlCommand(sql, ConectarBD.Conexao);
 
             MySqlDataReader leitor = cmd.ExecuteReader();
@@ -46,20 +71,14 @@ namespace ProjetoIntegradorOficial
                 {
                     Produto = leitor["produto"].ToString(),
                     Quantidade = int.Parse(leitor["quantidade"].ToString()),
-                    Preco = double.Parse(leitor["preco"].ToString()),
-                    Validade = leitor["validade"].ToString()
+                    Preco = double.Parse(leitor["preco"].ToString())
                 });
             }
 
             leitor.Close();
 
             dtEstoque.ItemsSource = lista;
-
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Introdução2());
-        }
     }
 }

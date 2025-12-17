@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.IO.Packaging;
 using System.Linq;
@@ -68,7 +69,35 @@ namespace ProjetoIntegradorOficial
         {
             if (app.ItemPedido.Count > 0)
             {
-                NavigationService.Navigate(new PedidoFinal());
+                var temQt = true;
+                for (int i = 0; i < app.ItemPedido.Count; i++)
+                {
+                    var sql = "SELECT quantidade FROM estoque WHERE produto = @produto";
+                    MySqlCommand cmd = new MySqlCommand(sql, ConectarBD.Conexao);
+
+                    cmd.Parameters.AddWithValue("@produto", app.ItemPedido[i].Item);
+
+                    var reader = cmd.ExecuteReader();
+
+                    int quantidade = 0;
+
+                    if (reader.Read()) // Move para o primeiro registro
+                    {
+                        quantidade = reader.GetInt32("quantidade");
+
+                        if (quantidade < app.ItemPedido[i].Quantidade)
+                        {
+                            temQt = false;
+                            reader.Close();
+                            MessageBox.Show($"Item: {app.ItemPedido[i].Item} quantidade disponivel = {quantidade}");
+                            break;
+                        }
+                    }
+
+                    reader.Close();
+                }
+                if (temQt)
+                    NavigationService.Navigate(new PedidoFinal());
             }
             else
             {
@@ -203,6 +232,11 @@ namespace ProjetoIntegradorOficial
         {
             app.InsertQt(tb_XBacon);
             app.UpdateQuantidade(XBacon, tb_XBacon.Name, tb_XBacon.Text);
+        }
+
+        private void Button_Voltar1_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Home());
         }
     }
 }
